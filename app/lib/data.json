@@ -5597,6 +5597,12 @@
         ]
       }
     },
-    "lastModified": "2025-02-13T08:22:42.321Z"
+    "changes": [
+      {
+        "id": "f0add2c6-f245-41cd-9937-35cc78d10600",
+        "date": "2025-02-13T08:22:42.321Z",
+        "coment": "Se creo la primer version de los recorridos y paradas del transporte publico de la ciudad de Punta Alta basandose en la ordenanza 4236"
+      }
+    ]
   }
 ]

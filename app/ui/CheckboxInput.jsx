@@ -9,7 +9,7 @@ export default function CheckboxInput({ id, onChange, name, children, checked })
         id={id}
         name={name}
         onChange={onChange}
-        className="invisible"
+        className="hidden"
       />
       {children}
     </label>

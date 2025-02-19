@@ -71,6 +71,12 @@ export default function PublicTransportSection() {
       deleteAllLines({ mapRef })
       deleteAllMarkers({ mapRef })
       changeShowPublicTransport({ id: closetRoute.routeId })
+    } else {
+      deleteAllLines({ mapRef })
+      deleteAllMarkers({ mapRef })
+      if (publicTransport) {
+        hiddenPublicTransport()
+      }
     }
   }, [userLocation, clickLocation, closetRoute])
 

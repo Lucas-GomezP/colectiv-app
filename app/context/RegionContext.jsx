@@ -89,6 +89,6 @@ export default function RegionContextProvider({ children }) {
     setPublicTransport,
     changeShowPublicTransport,
     showPublicStops,
-    hiddenPublicTransport
+    hiddenPublicTransport,
   }}>{children}</RegionContext.Provider>;
 }
