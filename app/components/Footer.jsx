@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import GitHubIcon from '@mui/icons-material/GitHub';
 

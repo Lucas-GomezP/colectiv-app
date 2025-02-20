@@ -1,3 +1,5 @@
+"use client"
+
 import useMapContext from "@/app/hooks/useMapContext";
 import usePathFinder from "@/app/hooks/usePathFinder";
 import useRegionContext from "@/app/hooks/useRegionContext";
@@ -20,13 +22,13 @@ export default function PublicTransportSection() {
     deleteAllMarkers({ mapRef })
 
     if (userLocation && clickLocation && closetRoute) {
-      createMarkerMap({
+      const userMarker = createMarkerMap({
         latitude: userLocation.latitude,
         longitude: userLocation.longitude,
         iconType: "user",
         mapRef
       })
-      createMarkerMap({
+      const destinationMarker = createMarkerMap({
         latitude: clickLocation.latitude,
         longitude: clickLocation.longitude,
         iconType: "destination",
@@ -42,6 +44,9 @@ export default function PublicTransportSection() {
         color: "black",
         mapRef
       })
+
+      userMarker.addTo(mapRef.current);
+      destinationMarker.addTo(mapRef.current);
     }
 
     publicTransport.routes.forEach((route) => {
@@ -55,12 +60,13 @@ export default function PublicTransportSection() {
     if (hiddenStops) return
     showPublicStops.forEach((stop) => {
       if (stop.show) {
-        createMarkerMap({
+        const marker = createMarkerMap({
           latitude: stop.latitude,
           longitude: stop.longitude,
           message: "<p><b>" + stop.name + "</b></p><p>" + stop.routesNames.join(", ") + "</p>",
           mapRef
         })
+        marker.addTo(mapRef.current);
       }
     })
   }, [publicTransport, hiddenStops])

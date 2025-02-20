@@ -20,6 +20,7 @@ export default function Home() {
               width={250}
               height={250}
               className="object-cover h-full w-full rounded-md"
+              priority
             />
           </div>
           <p className="text-center text-xl font-bold">Ver mapa de Coronel Rosales</p>

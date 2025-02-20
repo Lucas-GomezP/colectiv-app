@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import getUserLocation from "../utils/getUserLocation";
 import useMapContext from "./useMapContext";

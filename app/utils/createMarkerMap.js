@@ -1,4 +1,6 @@
-import L from "leaflet";
+"use client"
+
+import('leaflet').then(obj => L)
 
 export default function createMarkerMap({
   latitude,
@@ -58,5 +60,5 @@ export default function createMarkerMap({
       shadowSize: [41, 41]
     }))
   }
-  marker.addTo(mapRef.current);
+  return marker;
 }
