@@ -10,7 +10,7 @@ import deleteAllLines from "@/app/utils/deleteAllLines";
 import deleteAllMarkers from "@/app/utils/deleteAllMarkers";
 import { useEffect, useState } from "react";
 
-export default function PublicTransportSection() {
+export default function PublicTransportSection({setShowMenu, windowSize, setFeedback}) {
   const { publicTransport, changeShowPublicTransport, showPublicStops, hiddenPublicTransport } = useRegionContext();
   const { mapRef } = useMapContext()
   const { activePathFinder, setActiveActivePathFinder, userLocation, clickLocation, closetRoute } = usePathFinder()
@@ -114,7 +114,10 @@ export default function PublicTransportSection() {
               id="hidden-stops"
               name="hidden-stops"
               checked={hiddenStops}
-              onChange={() => setHiddenStops(!hiddenStops)}
+              onChange={() => {
+                if (windowSize.width < 768) setShowMenu(false)
+                setHiddenStops(!hiddenStops)
+              }}
             >
               {hiddenStops ? "Mostrar paradas" : "Ocultar paradas"}
             </CheckboxInput>
@@ -122,7 +125,11 @@ export default function PublicTransportSection() {
               id="path-finder"
               name="path-finder"
               checked={activePathFinder}
-              onChange={() => setActiveActivePathFinder(!activePathFinder)}
+              onChange={() => {
+                if (windowSize.width < 768) setShowMenu(false)
+                setActiveActivePathFinder(!activePathFinder)
+                !activePathFinder ? setFeedback('Haga click sobre el mapa para buscar el recorrido mas cercano') : setFeedback(null)
+              }}
             >
               Buscar recorrido
             </CheckboxInput>
