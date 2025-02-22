@@ -10,6 +10,7 @@ export default function Header() {
           <NavLink href="/">Inicio</NavLink>
           <NavLink href="/history">Historial de cambios</NavLink>
           <NavLink href="/about">Información</NavLink>
+          <NavLink href="/contact">Contacto</NavLink>
         </ul>
       </nav>
     </header>
